@@ -16,3 +16,7 @@ projects/*/audio/
 *.bak
 
 *.bak
+
+projects/*/clips
+projects/*/liste.txt
+projects/*/output
