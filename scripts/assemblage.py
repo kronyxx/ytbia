@@ -1,64 +1,68 @@
-import sys, os, json, subprocess
-ROOT = os.environ.get("YT_ROOT", r"C:\YouTubeIA")
-W, H, FPS = 1920, 1080, 25
-QUEUE_FIN = 0.8   # secondes ajoutees apres la derniere phrase
+﻿import sys, json, subprocess
+from pathlib import Path
 
-def run(cmd, cwd):
-    r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, encoding="utf-8", errors="replace")
-    if r.returncode != 0:
-        print(r.stderr[-2000:]); sys.exit(1)
-
-def zoompan(motion, n):
-    cx, cy = "iw/2-(iw/zoom/2)", "ih/2-(ih/zoom/2)"
-    z, x, y = f"1+0.12*on/{n}", cx, cy
-    if motion == "zoom_out":
-        z = f"1.12-0.12*on/{n}"
-    elif motion == "pan_left":
-        z, x = "1.12", f"(iw-iw/zoom)*(1-on/{n})"
-    elif motion == "pan_right":
-        z, x = "1.12", f"(iw-iw/zoom)*on/{n}"
-    return f"zoompan=z='{z}':x='{x}':y='{y}':d={n}:s={W}x{H}:fps={FPS}"
-
+FPS = 25
 vid = sys.argv[1]
-d = os.path.join(ROOT, "projects", vid)
-plans = json.load(open(os.path.join(d, "storyboard.json"), encoding="utf-8"))
+test = "--test" in sys.argv
+p = Path(__file__).resolve().parent.parent / "projects" / vid
+
+def rj(f):
+    return json.loads((p / f).read_text(encoding="utf-8"))
+
+def run(cmd):
+    r = subprocess.run(cmd, cwd=p, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    if r.returncode != 0:
+        print(r.stderr[-2500:]); sys.exit(1)
+    return r.stdout
+
+plans = rj("storyboard.json")
 if isinstance(plans, dict):
     plans = plans["plans"]
-tim = json.load(open(os.path.join(d, "timings.json"), encoding="utf-8"))
-os.makedirs(os.path.join(d, "clips"), exist_ok=True)
-os.makedirs(os.path.join(d, "output"), exist_ok=True)
+timings = {t["id"]: t for t in rj("timings.json")}
+total = float(run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                   "-of", "csv=p=0", "audio.wav"]).strip())
 
-durs = {}
-for k, t in enumerate(tim):
-    if k + 1 < len(tim):
-        durs[t["id"]] = tim[k + 1]["debut"] - t["debut"]
-    else:
-        durs[t["id"]] = t["duree"] + QUEUE_FIN
+def zp(motion, n):
+    z, x = f"1+0.15*on/{n}", "iw/2-(iw/zoom/2)"
+    y = "ih/2-(ih/zoom/2)"
+    if motion == "zoom_out":
+        z = f"1.15-0.15*on/{n}"
+    elif motion == "pan_left":
+        z, x = "1.15", f"(iw-iw/zoom)*(1-on/{n})"
+    elif motion == "pan_right":
+        z, x = "1.15", f"(iw-iw/zoom)*on/{n}"
+    return f"zoompan=z='{z}':x='{x}':y='{y}':d={n}:s=1920x1080:fps={FPS}"
 
-liste, total = [], 0.0
-for i, pl in enumerate(plans, 1):
-    pid = pl.get("id", i)
-    dur = durs[pid]
-    n = max(2, round(dur * FPS))
-    total += n / FPS
-    print(f"clip {i}/{len(plans)}", flush=True)
-    vf = (f"scale=3840:2160:force_original_aspect_ratio=increase:flags=lanczos,crop=3840:2160,"
-          f"{zoompan(pl.get('motion', 'zoom_in'), n)},format=yuv420p")
-    run(["ffmpeg", "-y", "-loglevel", "error", "-i", f"images/plan_{pid:03d}.png", "-vf", vf,
-         "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-r", str(FPS), f"clips/clip_{i:03d}.mp4"], d)
-    liste.append(f"file 'clip_{i:03d}.mp4'")
+(p / "clips").mkdir(exist_ok=True)
+(p / "output").mkdir(exist_ok=True)
+if test:
+    plans = plans[:3]
 
-open(os.path.join(d, "clips", "list.txt"), "w", encoding="utf-8").write("\n".join(liste))
-run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", "list.txt", "-c", "copy", "all.mp4"],
-    os.path.join(d, "clips"))
+liste = []
+for i, pl in enumerate(plans):
+    pid = pl["id"]
+    debut = timings[pid]["debut"]
+    nxt = plans[i + 1]["id"] if i + 1 < len(plans) else None
+    fin = timings[nxt]["debut"] if nxt else total
+    f0, f1 = round(debut * FPS), round(fin * FPS)
+    n = max(2, f1 - f0)
+    img = f"images/plan_{pid:03d}.png"
+    clip = f"clips/clip_{pid:03d}.mp4"
+    print(f"clip {i+1}/{len(plans)} ({n} images)")
+    vf = f"scale=3840:2160:flags=lanczos,{zp(pl.get('motion', 'zoom_in'), n)},format=yuv420p"
+    run(["ffmpeg", "-y", "-i", img, "-vf", vf, "-frames:v", str(n),
+         "-c:v", "libx264", "-crf", "18", "-r", str(FPS), clip])
+    liste.append(f"file '{clip}'")
 
-style = ("FontName=Arial,FontSize=16,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,"
-         "BorderStyle=1,Outline=2,Shadow=0,MarginV=30")
-fc = (f"[0:v]fade=t=in:st=0:d=0.6,fade=t=out:st={max(0, total - 1.2):.2f}:d=1.2,"
-      f"subtitles=sous_titres.srt:force_style='{style}'[v];"
-      "[1:a]aresample=48000,loudnorm=I=-16:TP=-1.5,apad[a]")
-print("Assemblage final", flush=True)
-run(["ffmpeg", "-y", "-loglevel", "error", "-i", "clips/all.mp4", "-i", "audio.wav", "-filter_complex", fc,
-     "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p",
-     "-c:a", "aac", "-b:a", "192k", "-t", f"{total:.3f}", "-movflags", "+faststart", "output/final.mp4"], d)
-print(f"OK : {os.path.join(d, 'output', 'final.mp4')} ({total:.1f} s)")
+(p / "liste.txt").write_text("\n".join(liste), encoding="utf-8")
+print("concatenation...")
+run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", "liste.txt", "-c", "copy", "clips/video_sans_son.mp4"])
+
+print("voix + sous-titres...")
+style = "FontName=Arial,FontSize=16,Outline=2,Shadow=0,MarginV=45,Alignment=2"
+sortie = f"output/{vid}{'_test' if test else ''}.mp4"
+run(["ffmpeg", "-y", "-i", "clips/video_sans_son.mp4", "-i", "audio.wav",
+     "-vf", f"subtitles=sous_titres.srt:force_style='{style}'",
+     "-c:v", "libx264", "-crf", "20", "-pix_fmt", "yuv420p",
+     "-c:a", "aac", "-b:a", "192k", "-shortest", sortie])
+print("termine :", p / sortie)
