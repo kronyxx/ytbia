@@ -1,3 +1,4 @@
+﻿import gestion_gpu; gestion_gpu.mode('ollama')
 """Collecte de VRAIES sources -> sources.json (Wikipédia FR + fichiers que tu déposes dans sources/).
 Le modèle ne reçoit que ces extraits : il ne doit rien inventer en dehors.
 
@@ -121,3 +122,4 @@ if not sources:
     sys.exit(1)
 if len(sources) < 2:
     log("ATTENTION : une seule source. Le script risque d'être court ; ajoute des fichiers dans sources/.")
+

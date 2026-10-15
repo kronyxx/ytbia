@@ -1,3 +1,4 @@
+﻿import gestion_gpu; gestion_gpu.mode('libre')
 """
 Sous-titres : texte EXACT du script + temps fournis par Whisper.
 
@@ -139,3 +140,4 @@ if __name__ == "__main__":
     cues = decouper(mots_s, temps)
     ecrire_srt(cues, sortie)
     print(f"{len(cues)} sous-titres écrits dans {sortie} ({len(mots_s)} mots du script, {len(mw)} mots Whisper).")
+

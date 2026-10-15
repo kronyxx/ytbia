@@ -1,14 +1,17 @@
-{
-  "video_id": "video_001",
-  "topic": "Pourquoi le poids d'une voiture change son comportement",
-  "target_words": 1100,
-  "queries": [
-    "transfert de charge automobile",
-    "répartition des masses voiture",
-    "sous-virage et survirage",
-    "adhérence des pneumatiques",
-    "distance de freinage",
-    "centre de gravité véhicule"
-  ],
-  "created": "2026-10-14"
+﻿{
+    "video_id":  "video_001",
+    "topic":  "Pourquoi le poids d\u0027une voiture change son comportement",
+    "target_words":  1100,
+    "created":  "2026-10-14",
+    "queries":  [
+                    "Transfert de charge",
+                    "Dynamique du véhicule",
+                    "Répartition des masses",
+                    "Centre de gravité",
+                    "Suspension (automobile)",
+                    "Sous-virage",
+                    "Pneumatique",
+                    "Distance de freinage",
+                    "Rapport poids/puissance"
+                ]
 }

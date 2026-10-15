@@ -1,4 +1,5 @@
-﻿"""
+﻿import gestion_gpu; gestion_gpu.mode('comfy')
+"""
 Images : storyboard.json -> images\\plan_001.png ... via l'API ComfyUI (SDXL, 16:9).
 
 Usage (PowerShell) - ComfyUI doit tourner (run_nvidia_gpu.bat) :
@@ -93,4 +94,5 @@ if __name__ == "__main__":
         else:
             print(f"Plan {p['id']} : ABANDONNÉ (relance le script pour réessayer)")
     print("Terminé. Images dans", sortie)
+
 

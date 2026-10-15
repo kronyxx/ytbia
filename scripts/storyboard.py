@@ -1,3 +1,4 @@
+﻿import gestion_gpu; gestion_gpu.mode('ollama')
 """
 Storyboard : script.md -> storyboard.json (un plan = narration + prompt d'image SDXL + mouvement).
 
@@ -129,3 +130,4 @@ if __name__ == "__main__":
     except Exception:
         pass
     print(f"{len(sortie)} plans écrits dans {dossier}\\storyboard.json")
+

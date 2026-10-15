@@ -1,9 +1,11 @@
-"""Orchestrateur sans n8n (ou en secours).
+﻿"""Orchestrateur sans n8n (ou en secours).
   run_pipeline.py video_001 "Sujet" --phase a     -> projet, sources, script  (puis TU relis script.md)
   run_pipeline.py video_001 --phase b             -> storyboard, métadonnées, voix, images, sous-titres, montage, QC"""
 import sys, os, subprocess, time
 from pathlib import Path
 from config import *
+import gestion_gpu
+MODES = {'fetch_sources.py':'ollama','ollama_gen.py':'ollama','comfy_gen.py':'comfy','subtitles.py':'libre'}
 
 HERE = Path(__file__).parent
 ASR = os.environ.get("YT_PY_ASR", str(ROOT / "venv-asr" / "Scripts" / "python.exe"))
@@ -17,6 +19,7 @@ def step(name, script, *a, py=None, retries=0):
     for attempt in range(retries + 1):
         log(f"=== {name}" + (f" (essai {attempt + 1})" if attempt else ""))
         t0 = time.time()
+        if script in MODES: gestion_gpu.mode(MODES[script])
         r = subprocess.run([py or sys.executable, str(HERE / script), *a])
         with open(pdir(vid).parent / f"{vid}.log", "a", encoding="utf-8") as f:
             f.write(f"{time.strftime('%F %T')} {name} code={r.returncode} {time.time() - t0:.0f}s\n")
@@ -42,3 +45,4 @@ if phase in ("b", "all"):
     step("Sous-titres (Whisper)", "subtitles.py", vid, py=ASR)
     step("Montage (FFmpeg)", "montage.py", vid)
     step("Contrôle qualité", "qc.py", vid)
+
