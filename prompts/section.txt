@@ -1,0 +1,22 @@
+Sujet : [[SUJET]]
+
+Plan général :
+[[PLAN]]
+
+Sources (seules références autorisées) :
+[[SOURCES]]
+
+Fin du texte déjà écrit (pour assurer la continuité) :
+[[PRECEDENT]]
+
+Rédige UNIQUEMENT la section [[NUM]]/[[TOTAL]] : « [[TITRE]] ». Objectif : [[OBJECTIF]].
+Longueur : jusqu'à [[MOTS]] mots de narration. Si les sources ne permettent pas d'atteindre cette longueur, écris plus court : n'étire pas, ne remplis pas.
+Règles :
+- Texte à lire à voix haute : phrases courtes à moyennes, pas de titres, pas de listes, pas de didascalies, pas de markdown, pas d'émojis.
+- Chaque fait précis (chiffre, loi, définition, mécanisme) vient UNIQUEMENT des sources ci-dessus, et est suivi de son identifiant entre crochets, par exemple [S2]. Aucun chiffre, matériau, marque ou exemple absent des sources. N'affirme rien de général (« un véhicule plus lourd est plus sûr/dangereux ») que les sources ne disent pas explicitement.
+- Si une affirmation indispensable n'est pas étayée, écris [À VÉRIFIER] juste après, ou mieux : supprime-la.
+- Écris les sigles et chiffres comme on les prononce quand c'est ambigu (ex : « six cylindres »).
+- Interdit : « ce documentaire va explorer », « dans cette vidéo », « nous allons découvrir », la reprise de la question du sujet plus d'une fois, les enchaînements de questions rhétoriques, les conclusions vagues (« levier pour l'innovation », « avenir des transports »).
+- Pas de répétition du texte précédent, aucun appel à s'abonner.
+- Si c'est la section 1, commence par une accroche concrète dans les 15 premières secondes.
+- Si c'est la dernière, réponds clairement à la question centrale en t'appuyant sur ce qui a été établi.

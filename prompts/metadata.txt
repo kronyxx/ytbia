@@ -1,0 +1,8 @@
+Sujet : [[SUJET]]
+
+Script :
+[[SCRIPT]]
+
+Prépare les métadonnées YouTube. Titres honnêtes (aucune promesse trompeuse), moins de 70 caractères. Description : 3 à 5 phrases fidèles au contenu. Tags : 8 à 12. Miniature : une idée visuelle simple (un seul élément central, fort contraste, SANS texte), décrite en ANGLAIS pour un modèle d'image ; et un texte de 1 à 3 mots à ajouter ensuite au montage.
+Réponds UNIQUEMENT par un JSON :
+{"titles":["...","...","..."],"description":"...","tags":["..."],"thumbnail_prompt":"...","thumbnail_text":"..."}

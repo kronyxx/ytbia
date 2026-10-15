@@ -1,0 +1,8 @@
+Tu es directeur artistique d'un documentaire automobile. Voici le passage de narration d'un plan :
+
+« [[NARRATION]] »
+
+Image du plan précédent (pour la cohérence) : [[PRECEDENT]]
+
+Décris l'image à générer avec un modèle d'illustration (SDXL). Règles : description en ANGLAIS, concrète (sujet, cadrage, lumière, ambiance, époque), une seule scène lisible, jamais de texte ni de logo dans l'image, ne pas représenter une personne réelle identifiable, ne pas prétendre être une photo d'archive authentique. Choisis un mouvement de caméra parmi : zoom_in, zoom_out, pan_left, pan_right. Texte à l'écran : vide (""), sauf pour un chiffre ou un nom clé très court.
+Réponds UNIQUEMENT par un JSON : {"image_prompt":"...","motion":"...","on_screen_text":""}

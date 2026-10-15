@@ -1,0 +1,12 @@
+Voici UN paragraphe de script de documentaire et les sources autorisées.
+
+SOURCES :
+[[SOURCES]]
+
+PARAGRAPHE :
+[[SCRIPT]]
+
+Pour chaque affirmation factuelle (chiffre, loi, matériau, mécanisme, généralité) du paragraphe, écris UNE ligne au format exact :
+ÉTAYÉE | « phrase ou partie de phrase » | S2
+NON ÉTAYÉE | « phrase ou partie de phrase » | raison courte
+Règles : une ligne par affirmation, jamais deux fois la même affirmation, 8 lignes maximum. Une affirmation est ÉTAYÉE seulement si la source dit la même chose ; sinon NON ÉTAYÉE. Ne comble pas avec tes connaissances. Pas d'introduction, pas de conclusion.

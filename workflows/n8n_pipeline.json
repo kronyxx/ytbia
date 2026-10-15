@@ -1,0 +1,364 @@
+{
+ "name": "Pipeline YouTube IA",
+ "nodes": [
+  {
+   "parameters": {},
+   "id": "73223738-ffef-4747-b129-d12549a8dc89",
+   "name": "Chaîne A — déclencheur",
+   "type": "n8n-nodes-base.manualTrigger",
+   "typeVersion": 1,
+   "position": [
+    0,
+    0
+   ]
+  },
+  {
+   "parameters": {
+    "assignments": {
+     "assignments": [
+      {
+       "id": "7631497b-444f-491c-ab22-062d382101be",
+       "name": "video_id",
+       "value": "video_001",
+       "type": "string"
+      },
+      {
+       "id": "d56207e4-bafc-460c-8d21-a97764dd546d",
+       "name": "topic",
+       "value": "Pourquoi le poids d'une voiture change son comportement",
+       "type": "string"
+      }
+     ]
+    }
+   },
+   "id": "4376e8fe-3604-404e-a21c-d0873178f02d",
+   "name": "ID A",
+   "type": "n8n-nodes-base.set",
+   "typeVersion": 3.4,
+   "position": [
+    220,
+    0
+   ]
+  },
+  {
+   "parameters": {
+    "command": "=C:\\YouTubeIA\\venv-tts\\Scripts\\python.exe C:\\YouTubeIA\\scripts\\new_project.py {{ $('ID A').item.json.video_id }} \"{{ $('ID A').item.json.topic }}\""
+   },
+   "id": "a1a6c31c-bd8b-484a-b8a2-325c14a8cecf",
+   "name": "A1 Créer projet",
+   "type": "n8n-nodes-base.executeCommand",
+   "typeVersion": 1,
+   "position": [
+    440,
+    0
+   ]
+  },
+  {
+   "parameters": {
+    "command": "=C:\\YouTubeIA\\venv-tts\\Scripts\\python.exe C:\\YouTubeIA\\scripts\\fetch_sources.py {{ $('ID A').item.json.video_id }}"
+   },
+   "id": "87f5bd7e-ddb6-48a7-9302-e77347e2cb00",
+   "name": "A2 Collecter sources",
+   "type": "n8n-nodes-base.executeCommand",
+   "typeVersion": 1,
+   "position": [
+    660,
+    0
+   ]
+  },
+  {
+   "parameters": {
+    "command": "=C:\\YouTubeIA\\venv-tts\\Scripts\\python.exe C:\\YouTubeIA\\scripts\\ollama_gen.py script {{ $('ID A').item.json.video_id }}"
+   },
+   "id": "c8f3e074-a6e8-4f40-91e8-d04e61192bc9",
+   "name": "A3 Script (Ollama)",
+   "type": "n8n-nodes-base.executeCommand",
+   "typeVersion": 1,
+   "position": [
+    880,
+    0
+   ]
+  },
+  {
+   "parameters": {},
+   "id": "6ca60f07-d974-488f-af60-4242b3c65820",
+   "name": "Chaîne B — déclencheur",
+   "type": "n8n-nodes-base.manualTrigger",
+   "typeVersion": 1,
+   "position": [
+    0,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "assignments": {
+     "assignments": [
+      {
+       "id": "b8ad8585-a2b0-4923-b3d4-2a1f60d938a8",
+       "name": "video_id",
+       "value": "video_001",
+       "type": "string"
+      },
+      {
+       "id": "d7d95005-6299-4a4e-b101-ddecc2d73d8a",
+       "name": "topic",
+       "value": "",
+       "type": "string"
+      }
+     ]
+    }
+   },
+   "id": "c16461da-d7d5-4ae3-af22-183211cc5871",
+   "name": "ID B",
+   "type": "n8n-nodes-base.set",
+   "typeVersion": 3.4,
+   "position": [
+    220,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "command": "=C:\\YouTubeIA\\venv-tts\\Scripts\\python.exe C:\\YouTubeIA\\scripts\\ollama_gen.py storyboard {{ $('ID B').item.json.video_id }}"
+   },
+   "id": "f303e01d-a191-40e5-87b7-82dcc6a2ff26",
+   "name": "B1 Storyboard",
+   "type": "n8n-nodes-base.executeCommand",
+   "typeVersion": 1,
+   "position": [
+    440,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "command": "=C:\\YouTubeIA\\venv-tts\\Scripts\\python.exe C:\\YouTubeIA\\scripts\\ollama_gen.py metadata {{ $('ID B').item.json.video_id }}"
+   },
+   "id": "f3bb2007-8f97-4400-963c-d53156e544de",
+   "name": "B2 Métadonnées",
+   "type": "n8n-nodes-base.executeCommand",
+   "typeVersion": 1,
+   "position": [
+    660,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "command": "=C:\\YouTubeIA\\venv-tts\\Scripts\\python.exe C:\\YouTubeIA\\scripts\\tts_piper.py {{ $('ID B').item.json.video_id }}"
+   },
+   "id": "2ba54970-7b50-4576-b52f-74aa1d4b226a",
+   "name": "B3 Voix (Piper)",
+   "type": "n8n-nodes-base.executeCommand",
+   "typeVersion": 1,
+   "position": [
+    880,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "command": "=C:\\YouTubeIA\\venv-tts\\Scripts\\python.exe C:\\YouTubeIA\\scripts\\comfy_gen.py {{ $('ID B').item.json.video_id }}"
+   },
+   "id": "5ac21a46-3fa1-4f0b-825a-6b8b391f960f",
+   "name": "B4 Images (ComfyUI)",
+   "type": "n8n-nodes-base.executeCommand",
+   "typeVersion": 1,
+   "position": [
+    1100,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "command": "=C:\\YouTubeIA\\venv-asr\\Scripts\\python.exe C:\\YouTubeIA\\scripts\\subtitles.py {{ $('ID B').item.json.video_id }}"
+   },
+   "id": "c238a5ee-e4b9-42e5-acd2-61a6bf89690f",
+   "name": "B5 Sous-titres (Whisper)",
+   "type": "n8n-nodes-base.executeCommand",
+   "typeVersion": 1,
+   "position": [
+    1320,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "command": "=C:\\YouTubeIA\\venv-tts\\Scripts\\python.exe C:\\YouTubeIA\\scripts\\montage.py {{ $('ID B').item.json.video_id }}"
+   },
+   "id": "6ef5e792-5778-4c8e-ab8b-140894e89941",
+   "name": "B6 Montage (FFmpeg)",
+   "type": "n8n-nodes-base.executeCommand",
+   "typeVersion": 1,
+   "position": [
+    1540,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "command": "=C:\\YouTubeIA\\venv-tts\\Scripts\\python.exe C:\\YouTubeIA\\scripts\\qc.py {{ $('ID B').item.json.video_id }}"
+   },
+   "id": "7cdc8df3-3014-4914-ab92-d703e7f667f9",
+   "name": "B7 Contrôle qualité",
+   "type": "n8n-nodes-base.executeCommand",
+   "typeVersion": 1,
+   "position": [
+    1760,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "content": "CHAÎNE A puis RELIRE script.md / verification.md (retirer les [À VÉRIFIER]), PUIS chaîne B. Changer video_id dans « ID A » et « ID B »."
+   },
+   "id": "b5b7c445-f028-420c-8e36-41f77bf3b327",
+   "name": "Note",
+   "type": "n8n-nodes-base.stickyNote",
+   "typeVersion": 1,
+   "position": [
+    0,
+    -200
+   ]
+  }
+ ],
+ "connections": {
+  "Chaîne A — déclencheur": {
+   "main": [
+    [
+     {
+      "node": "ID A",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "ID A": {
+   "main": [
+    [
+     {
+      "node": "A1 Créer projet",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "A1 Créer projet": {
+   "main": [
+    [
+     {
+      "node": "A2 Collecter sources",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "A2 Collecter sources": {
+   "main": [
+    [
+     {
+      "node": "A3 Script (Ollama)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Chaîne B — déclencheur": {
+   "main": [
+    [
+     {
+      "node": "ID B",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "ID B": {
+   "main": [
+    [
+     {
+      "node": "B1 Storyboard",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "B1 Storyboard": {
+   "main": [
+    [
+     {
+      "node": "B2 Métadonnées",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "B2 Métadonnées": {
+   "main": [
+    [
+     {
+      "node": "B3 Voix (Piper)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "B3 Voix (Piper)": {
+   "main": [
+    [
+     {
+      "node": "B4 Images (ComfyUI)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "B4 Images (ComfyUI)": {
+   "main": [
+    [
+     {
+      "node": "B5 Sous-titres (Whisper)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "B5 Sous-titres (Whisper)": {
+   "main": [
+    [
+     {
+      "node": "B6 Montage (FFmpeg)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "B6 Montage (FFmpeg)": {
+   "main": [
+    [
+     {
+      "node": "B7 Contrôle qualité",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ },
+ "active": false,
+ "settings": {
+  "executionOrder": "v1"
+ }
+}

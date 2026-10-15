@@ -1,0 +1,42 @@
+[
+  {
+    "type": "wikipedia",
+    "title": "Moment d'inertie",
+    "url": "https://fr.wikipedia.org/wiki/Moment_d%27inertie",
+    "retrieved": "2026-10-14",
+    "extract": "Le moment d'inertie d'un système physique est une grandeur qui caractérise son inertie vis-à-vis des mouvements de rotation. Sa masse caractérise son inertie vis-à-vis des mouvements de translation. Ce moment d'inertie dépend de la valeur et de la répartition des masses au sein du système. Il a pour dimension \n  \n    \n      \n        M\n        ⋅\n        \n          L\n          \n            2\n          \n        \n      \n    \n    {\\textstyle M\\cdot L^{2}}\n  \n (produit d'une masse par le carré d'une longueur) et s'exprime donc en kg·m2 selon le système international d'unités (SI).\nDans le cas de la rotation d'une masse autour d'un axe fixe, le moment d'inertie par rapport à cet axe est une grandeur scalaire qui apparaît dans les expressions du moment cinétique et de l'énergie cinétique de rotation de ce corps. Toutefois, dans le cas général d'une rotation autour d'un axe dont la direction varie au cours du temps, il est nécessaire d'introduire un tenseur symétrique du second ordre, le tenseur d'inertie. Il est toujours possible de choisir un système d'axes, dits axes principaux d'inertie, tel que la matrice représentative de ce tenseur prenne une forme diagonale. Les trois moments correspondants...",
+    "id": "S1"
+  },
+  {
+    "type": "wikipedia",
+    "title": "Inertie",
+    "url": "https://fr.wikipedia.org/wiki/Inertie",
+    "retrieved": "2026-10-14",
+    "extract": "En physique, l'inertie d'un corps, dans un référentiel galiléen (dit inertiel), est sa tendance à conserver sa vitesse : en l'absence d'influence extérieure, tout corps ponctuel perdure dans un mouvement rectiligne uniforme. L'inertie est aussi appelée principe d'inertie, ou loi d'inertie, et, depuis Newton, première loi de Newton.\nLa loi d'inertie exprime le fait que si la vitesse \n  \n    \n      \n        \n          \n            \n              v\n              →\n            \n          \n        \n      \n    \n    {\\displaystyle {\\vec {v}}}\n  \n du corps ponctuel par rapport au repère galiléen est constante, « la somme des forces \n  \n    \n      \n        \n          \n            \n              F\n              →\n            \n          \n        \n      \n    \n    {\\displaystyle {\\vec {F}}}\n  \n s'exerçant sur le corps est nulle ».\n\n  \n    \n      \n        \n          \n            \n              v\n              →\n            \n          \n        \n        =\n        \n          \n            \n              \n                c\n                t\n                e\n              \n              →\n            \n          \n        \n        ⇔\n        ∑\n        \n          \n            \n              F...",
+    "id": "S2"
+  },
+  {
+    "type": "wikipedia",
+    "title": "Volant d'inertie",
+    "url": "https://fr.wikipedia.org/wiki/Volant_d%27inertie",
+    "retrieved": "2026-10-14",
+    "extract": "Un volant d'inertie est un système rotatif permettant le stockage et la restitution d'énergie cinétique. Une masse (disque, anneau, cylindre, éventuellement couplés en un système contrarotatif, etc.) fixée sur un axe est mise en rotation par l'application d'un couple, augmentant sa vitesse de rotation et donc l'énergie emmagasinée. La quantité d'énergie est proportionnelle au carré de la vitesse de rotation. \nSa caractéristique physique est le moment d'inertie qui exprime la répartition des masses autour de l'axe. \n\n\n== Emploi de volants d'inertie ==\n\n\n=== Perturbations liées au moteur ===\nPar exemple, dans les moteurs thermiques, le volant d'inertie — souvent associé à la couronne de démarreur et à l'embrayage — absorbe l'irrégularité du couple moteur entraîné par à-coups par les pistons. L'ajout du volant d'inertie permet alors de diminuer les vibrations.\nDe plus, le volant d'inertie peut emmagasiner un excédent d'énergie sur la phase motrice (explosion), pour l'utiliser dans le franchissement du point mort (compression). Le phénomène est d'autant plus perceptible que le nombre de pistons est faible et que le régime de fonctionnement est bas.\n\n\n=== Perturbations liées au récepteur ===\nLes concasseurs...",
+    "id": "S3"
+  },
+  {
+    "type": "wikipedia",
+    "title": "Différence entre masse et poids",
+    "url": "https://fr.wikipedia.org/wiki/Diff%C3%A9rence_entre_masse_et_poids",
+    "retrieved": "2026-10-14",
+    "extract": "Dans l'usage courant, on parle souvent de poids pour désigner la masse d'un objet, bien qu'il s'agisse en fait de concepts et de quantités différents. Néanmoins, lorsque deux objets sont soumis à la même gravité (c'est-à-dire à la même intensité de champ gravitationnel), l'objet ayant plus de masse pèse toujours plus que l'autre.\nDu point de vue de la science, la masse est la quantité de « matière » contenue dans un objet (bien que la matière puisse être difficile à définir), alors que le poids est la force exercée sur la matière de l'objet par la gravité. À la surface de la Terre, un objet dont la masse est d'un kilogramme pèse environ 9,81 newtons, ce qui correspond à la masse de l'objet multiplié par l'intensité du champ gravitationnel à l'endroit où se trouve l'objet. Le poids de l'objet est plus faible sur Mars, où la gravité est moins intense ; il est plus élevé sur Saturne, où la gravité est supérieure ; et il est très faible dans l'espace, loin de toute source importante de gravité. Mais dans tous les cas, l'objet a toujours la même masse.\nLes objets matériels à la surface de la Terre ont tous un poids, bien qu'il soit parfois difficile de le mesurer. Un objet flottant librement...",
+    "id": "S4"
+  },
+  {
+    "type": "wikipedia",
+    "title": "Pesanteur",
+    "url": "https://fr.wikipedia.org/wiki/Pesanteur",
+    "retrieved": "2026-10-14",
+    "extract": "Le champ de pesanteur est le champ attractif qui s'exerce sur tout corps doté d'une masse sur la Terre (ou un autre astre). Il s'agit d'un champ d'accélération, souvent appelé plus simplement pesanteur ou « g ». L'essentiel de la pesanteur terrestre est due à la gravité, mais s'en distingue du fait de l'accélération axifuge (qui s'éloigne d'un axe) induite par la rotation de la Terre sur elle-même.\nLa gravité terrestre découle de la loi universelle de la gravitation de Newton, selon laquelle tous les corps massifs, dont les corps célestes et la Terre, exercent un champ de gravitation responsable d'une force attractive sur les autres corps massiques. Dans le référentiel terrestre, le mouvement de rotation autour de l'axe des pôles induit une accélération d’entraînement axifuge qui, combinée à la gravité, définit la pesanteur. Cette définition est généralisable aux autres corps célestes : on parle alors, par exemple, de pesanteur de Mars.\nLa force à laquelle est soumis un corps en raison de la pesanteur est appelée poids de ce corps et est proportionnelle à la pesanteur g et à la masse de ce corps ; son unité de mesure est le newton, comme pour toute force. Cette force définit la verticale...",
+    "id": "S5"
+  }
+]

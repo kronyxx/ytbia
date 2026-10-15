@@ -1,0 +1,9 @@
+Sujet de la vidéo : [[SUJET]]
+
+Sources disponibles (seules références autorisées) :
+[[SOURCES]]
+
+Propose le plan d'un documentaire de 8 minutes en 6 sections : accroche (question ou paradoxe), contexte et promesse, mise en place de l'histoire, explications et preuves, rebondissement, réponse à la question centrale et ouverture.
+Contrainte : chaque section doit pouvoir s'appuyer sur des faits PRÉSENTS dans les sources ci-dessus. Dans "objectif", cite les sources prévues (ex : « S2, S3 »). N'invente pas de section dont les faits ne figurent pas dans les sources.
+Réponds UNIQUEMENT par un JSON de la forme :
+{"sections":[{"titre":"...","objectif":"ce que le spectateur apprend ou ressent dans cette section (sources : S?)"}]}

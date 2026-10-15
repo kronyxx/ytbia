@@ -1,0 +1,14 @@
+﻿venv-tts/
+venv-asr/
+voices/
+models/
+logs/
+__pycache__/
+*.pyc
+*.onnx
+*.safetensors
+*.wav
+*.mp4
+*.png
+projects/*/images/
+projects/*/audio/
