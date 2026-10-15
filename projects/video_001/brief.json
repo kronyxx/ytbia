@@ -3,12 +3,12 @@
   "topic": "Pourquoi le poids d'une voiture change son comportement",
   "target_words": 1100,
   "queries": [
-    "force de traction",
-    "moment d'inertie",
-    "masse et accélération",
-    "résistance aérienne",
-    "poids et adhérence",
-    "efficacité énergétique"
+    "transfert de charge automobile",
+    "répartition des masses voiture",
+    "sous-virage et survirage",
+    "adhérence des pneumatiques",
+    "distance de freinage",
+    "centre de gravité véhicule"
   ],
   "created": "2026-10-14"
 }

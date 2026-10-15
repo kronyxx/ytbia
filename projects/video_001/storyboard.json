@@ -8,21 +8,21 @@
   },
   {
     "image_prompt": "A close-up of a car's suspension system under tension during a sharp turn, showing the mechanical components in motion with a focus on the coil springs and shock absorbers. The scene is lit with soft natural light coming from the side, casting shadows that emphasize the movement and tension. The road is visible in the background, slightly blurred to highlight the mechanical detail. The atmosphere is tense and dynamic, capturing the struggle between inertia and control.",
-    "motion": "zoom_in",
+    "motion": "pan_left",
     "on_screen_text": "",
     "id": 2,
     "narration": "L'inertie, cette tendance d'un corps à conserver son état de mouvement, dépend directement de sa masse. Plus la voiture est lourde, plus elle résiste aux changements de vitesse ou de direction. Mais cette stabilité n'est pas sans contrainte."
   },
   {
     "image_prompt": "A top-down view of a car's rear suspension system under tension during a sharp turn, with the wheels slightly lifted off the road surface, showing the mechanical balance between weight distribution and agility. The road curves sharply in the background, with a faint texture suggesting wet conditions. The lighting is soft and diffused, creating a realistic yet stylized atmosphere.",
-    "motion": "zoom_in",
+    "motion": "zoom_out",
     "on_screen_text": "",
     "id": 3,
     "narration": "Une voiture trop lourde met plus de temps à accélérer ou à freiner, ce qui affecte son agilité. Entre stabilité et réactivité, le poids joue un rôle déterminant."
   },
   {
     "image_prompt": "A low-angle front three-quarter view of a sports car mid-turn on a winding road, with the front wheels slightly lifted due to weight transfer, highlighting the tension in the front suspension and the deformation of the front tires as the car leans into the curve. The road is wet with light reflections, and the car's body shows a slight tilt, emphasizing the balance between inertia and cornering forces.",
-    "motion": "zoom_in",
+    "motion": "pan_right",
     "on_screen_text": "",
     "id": 4,
     "narration": "Ce paradoxe entre sécurité et performance invite à explorer comment la physique des forces et des mouvements façonne le comportement d'une voiture. L'inertie, c'est cette propriété des objets à résister aux changements de leur mouvement."
@@ -36,21 +36,21 @@
   },
   {
     "image_prompt": "A close-up interior cockpit view of a high-performance sports car, showing the driver's hands on the steering wheel, the dashboard with illuminated gauges, and the suspension system visible through the floor panel during a sharp turn. The car is mid-turn on a winding road, with the front wheels slightly lifted and the rear wheels gripping the asphalt. The light is soft and directional, casting shadows on the dashboard and emphasizing the mechanical details of the suspension. The atmosphere is tense and focused, highlighting the balance between inertia and control.",
-    "motion": "zoom_in",
+    "motion": "pan_left",
     "on_screen_text": "",
     "id": 6,
     "narration": "Sur Terre, la pesanteur agit sur cette masse pour la faire peser. Mais l'inertie ne dépend pas de la gravité, elle dépend seulement de la quantité de matière dans l'objet. C'est cette résistance au changement de mouvement qui explique pourquoi une voiture lourde est plus stable, mais moins réactive."
   },
   {
     "image_prompt": "A macro shot of a car tire gripping asphalt during a sharp turn, showing the deformation of the tread and the skid marks left behind, with the road surface visible under the tire, emphasizing the interaction between mass and inertia",
-    "motion": "zoom_in",
+    "motion": "zoom_out",
     "on_screen_text": "",
     "id": 7,
     "narration": "L'inertie, donc, est liée à la masse, et c'est cette relation qui façonne le comportement d'une voiture. Le poids d'une voiture est le résultat de sa masse soumise à la pesanteur."
   },
   {
     "image_prompt": "A clean studio shot of a car's suspension system in motion, showing the compression and rebound of springs and shock absorbers as the vehicle navigates a controlled turn on a flat, plain background. The focus is on mechanical details with precise engineering, illuminated by soft, even lighting to emphasize motion and structure.",
-    "motion": "zoom_in",
+    "motion": "pan_right",
     "on_screen_text": "",
     "id": 8,
     "narration": "Sur Terre, la gravité attire la masse de la voiture vers le centre de la planète, ce qui lui donne un poids. Ce poids est la force que la Terre exerce sur la voiture, et il est proportionnel à sa masse."
@@ -64,21 +64,21 @@
   },
   {
     "image_prompt": "A close-up of a car's differential gear mechanism, showing the interlocking gears in motion, with metallic reflections and subtle motion blur, set against a dark metallic surface with a soft, directional light highlighting the mechanical details",
-    "motion": "zoom_in",
+    "motion": "pan_left",
     "on_screen_text": "",
     "id": 10,
     "narration": "Le poids, quant à lui, est la force qui agit sur cette masse sous l'effet de la gravité. Ainsi, le poids est lié à la masse, mais c'est la masse qui détermine la manière dont la voiture réagit aux forces externes."
   },
   {
     "image_prompt": "A top-down view of a car's wheels spinning on a curved road, with the vehicle slightly leaning into the turn, showing the weight distribution across the tires and the road surface, with dynamic motion lines around the tires and a blurred background to emphasize rotation and inertia",
-    "motion": "zoom_in",
+    "motion": "zoom_out",
     "on_screen_text": "",
     "id": 11,
     "narration": "Le moment d'inertie est une grandeur qui décrit comment la masse d'une voiture est répartie autour de son axe de rotation. Plus la masse est concentrée loin de cet axe, plus le moment d'inertie est élevé, ce qui rend la rotation plus difficile."
   },
   {
     "image_prompt": "A low-angle front three-quarter view of a car's rear suspension system compressing and rebounding as the vehicle navigates a tight curve on a winding mountain road, with the wheels spinning and the chassis tilting slightly under dynamic forces, illuminated by the soft glow of dawn light filtering through the trees",
-    "motion": "zoom_in",
+    "motion": "pan_right",
     "on_screen_text": "",
     "id": 12,
     "narration": "Dans une voiture, ce phénomène affecte notamment le comportement en virage ou lors des accélérations brusques. Un volant d'inertie, qui est un système rotatif, utilise ce principe pour stocker de l'énergie cinétique. Son moment d'inertie dépend de la forme et de la répartition de la masse autour de l'axe."
@@ -92,21 +92,21 @@
   },
   {
     "image_prompt": "A close-up interior view of a car's engine compartment showing the pistons moving with visible piston rods extending and retracting, with the flywheel rotating slowly in the background, illuminated by a warm, focused light source from the left, highlighting the mechanical details and motion",
-    "motion": "zoom_in",
+    "motion": "pan_left",
     "on_screen_text": "",
     "id": 14,
     "narration": "Les pistons, en explosant, génèrent des à-coups qui perturbent le mouvement régulier du moteur. Le volant, en raison de son moment d'inertie, absorbe ces irrégularités. Sa masse, répartie autour de l'axe, lui confère une résistance au changement de vitesse de rotation."
   },
   {
     "image_prompt": "A macro shot of a tire gripping the asphalt, showing the tread patterns and the slight deformation of the rubber as the car navigates a turn, with the suspension system visible in motion beneath the car, capturing the balance between acceleration and braking forces",
-    "motion": "zoom_in",
+    "motion": "zoom_out",
     "on_screen_text": "",
     "id": 15,
     "narration": "Cela permet de stabiliser le fonctionnement du moteur, réduisant les vibrations. De plus, il peut stocker de l'énergie pendant les phases d'accélération, pour la restituer lors des phases de freinage."
   },
   {
     "image_prompt": "A clean studio shot of a car's front suspension system in motion, showing the movement of springs and shock absorbers as the vehicle transitions through a simulated turn, with a smooth, minimalist background and soft lighting emphasizing mechanical details",
-    "motion": "zoom_in",
+    "motion": "pan_right",
     "on_screen_text": "",
     "id": 16,
     "narration": "Ainsi, le moment d'inertie, lié à la répartition de la masse, devient un outil essentiel pour améliorer la fluidité du moteur. Le poids d'une voiture influence son comportement en modulant son inertie."
@@ -120,14 +120,14 @@
   },
   {
     "image_prompt": "A close-up of a car's differential gear mechanism, showing the interlocking gears in motion, with metallic reflections under bright, directional lighting, highlighting the mechanical details and precision of the internal workings",
-    "motion": "zoom_in",
+    "motion": "pan_left",
     "on_screen_text": "",
     "id": 18,
     "narration": "Le moment d'inertie, lié à la répartition de la masse, joue un rôle clé dans la rotation et la stabilité. Ainsi, le poids affecte à la fois la trajectoire et la réactivité d'une voiture, en modulant l'effet de la gravité."
   },
   {
     "image_prompt": "A top-down view of a car's front suspension system in motion, with the wheels turning and the suspension compressing and rebounding as the vehicle navigates a curved road, showing the interaction between the tires and the road surface under dynamic load",
-    "motion": "zoom_in",
+    "motion": "zoom_out",
     "on_screen_text": "",
     "id": 19,
     "narration": "C’est cette relation entre masse, inertie et forces qui explique pourquoi une voiture lourde est plus stable mais moins agile."

@@ -9,7 +9,7 @@ Améliorations :
  - tes fichiers .txt/.md déposés dans sources/ passent TOUJOURS en premier et ne sont jamais filtrés.
 Pour forcer tes propres requêtes : édite brief.json -> "queries".
 Pour désactiver le filtre : brief.json -> "filter": false."""
-import sys, datetime
+import sys, datetime, time
 from urllib.parse import urlencode
 from config import *
 from ollama_gen import chat, parse_json, unload
@@ -44,11 +44,22 @@ if not queries or queries == [topic]:
     write_json(brief_path, brief)          # visible et modifiable par toi
 log("Requêtes : " + " | ".join(queries))
 
+def get(url, timeout=30):
+    for essai in range(5):
+        try:
+            time.sleep(1.5)
+            return http_json(url, timeout=timeout)
+        except Exception as e:
+            if "429" in str(e) and essai < 4:
+                time.sleep(10 * (essai + 1))
+                continue
+            raise
+
 # 2) Candidats Wikipédia ----------------------------------------------------------------------
 cands, seen = [], set()
 for q in queries:
     try:
-        r = http_json(API + urlencode({"action": "query", "list": "search", "srsearch": q,
+        r = get(API + urlencode({"action": "query", "list": "search", "srsearch": q,
                                        "srlimit": 4, "format": "json"}), timeout=30)
     except Exception as e:
         log(f"Recherche impossible pour « {q} » : {e}")
@@ -59,7 +70,7 @@ for q in queries:
             continue
         seen.add(title)
         try:
-            dd = http_json(API + urlencode({"action": "query", "prop": "extracts|info", "titles": title,
+            dd = get(API + urlencode({"action": "query", "prop": "extracts|info", "titles": title,
                                             "explaintext": 1, "exchars": 5000, "inprop": "url",
                                             "format": "json", "redirects": 1}), timeout=30)
             page = next(iter(dd["query"]["pages"].values()))
