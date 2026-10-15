@@ -15,7 +15,7 @@ from urllib.parse import urlencode
 from config import *
 from ollama_gen import chat, parse_json, unload
 
-MAX_CANDIDATES, MAX_KEEP = 14, 5
+MAX_CANDIDATES, MAX_KEEP = 20, 8
 vid = sys.argv[1]
 p = pdir(vid)
 brief_path = p / "brief.json"
@@ -31,12 +31,12 @@ if not queries or queries == [topic]:
     try:
         d = parse_json(chat(
             f"Sujet d'une vidéo documentaire : « {topic} ».\n"
-            "Propose 6 requêtes de recherche pour Wikipédia FR qui trouvent des articles de FOND "
-            "(lois physiques, grandeurs, mécanismes, données chiffrées) utiles pour traiter ce sujet. "
+            "Propose 9 requêtes de recherche pour Wikipédia FR qui trouvent des articles de FOND "
+            "liés à la DYNAMIQUE DES VÉHICULES et à la mécanique automobile (masse, inertie, transfert de charge, suspension, pneumatiques, freinage, adhérence) utiles pour traiter ce sujet. Privilégie des titres exacts d'articles Wikipédia. "
             "Chaque requête = 1 à 4 mots, un concept précis (ex: « énergie cinétique »). "
             "Pas de phrase, pas de sujet trop général comme « automobile ».\n"
             'Réponds UNIQUEMENT par un JSON : {"queries":["...","..."]}', fmt="json", temperature=0.3))
-        queries = [q.strip() for q in d.get("queries", []) if isinstance(q, str) and q.strip()][:6]
+        queries = [q.strip() for q in d.get("queries", []) if isinstance(q, str) and q.strip()][:9]
     except Exception as e:
         log(f"Génération des requêtes impossible : {e}")
     if not queries:
@@ -65,7 +65,7 @@ for q in queries:
     except Exception as e:
         log(f"Recherche impossible pour « {q} » : {e}")
         continue
-    for hit in r.get("query", {}).get("search", []):
+    for hit in [{"title": q}] + r.get("query", {}).get("search", []):
         title = hit["title"]
         if title in seen or len(cands) >= MAX_CANDIDATES:
             continue
@@ -84,6 +84,9 @@ for q in queries:
 log(f"{len(cands)} pages candidates")
 
 # 3) Filtre de pertinence ---------------------------------------------------------------------
+ANCRES = [a.lower() for a in brief.get('ancres', ['voiture','véhicule','automobile','roue','pneu','freinage','suspension','route'])]
+cands = [c for c in cands if sum(c['extract'].lower().count(a) for a in ANCRES) >= 3]
+log(f'{len(cands)} pages apres filtre mots-cles')
 kept = cands
 if cands and brief.get("filter", True):
     listing = "\n".join(f"{i}. {c['title']} — {c['extract'][:350].replace(chr(10), ' ')}" for i, c in enumerate(cands, 1))
@@ -122,4 +125,6 @@ if not sources:
     sys.exit(1)
 if len(sources) < 2:
     log("ATTENTION : une seule source. Le script risque d'être court ; ajoute des fichiers dans sources/.")
+
+
 

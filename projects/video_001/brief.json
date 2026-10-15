@@ -4,14 +4,17 @@
     "target_words":  1100,
     "created":  "2026-10-14",
     "queries":  [
-                    "Transfert de charge",
                     "Dynamique du véhicule",
-                    "Répartition des masses",
+                    "Transfert de charge",
                     "Centre de gravité",
-                    "Suspension (automobile)",
+                    "Suspension de véhicule",
+                    "Pneumatique (véhicule)",
                     "Sous-virage",
-                    "Pneumatique",
+                    "Survirage",
                     "Distance de freinage",
-                    "Rapport poids/puissance"
+                    "Rapport poids/puissance",
+                    "Moment d\u0027inertie",
+                    "Adhérence (mécanique)",
+                    "Aérodynamique automobile"
                 ]
 }
