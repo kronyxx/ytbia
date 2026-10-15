@@ -1,4 +1,4 @@
-"""
+﻿"""
 Images : storyboard.json -> images\\plan_001.png ... via l'API ComfyUI (SDXL, 16:9).
 
 Usage (PowerShell) - ComfyUI doit tourner (run_nvidia_gpu.bat) :
@@ -16,7 +16,7 @@ CKPT = "sd_xl_base_1.0.safetensors"
 LARGEUR, HAUTEUR = 1344, 768
 STYLE = ("realistic digital illustration, cinematic lighting, high detail, sharp focus, "
          "no text, no logo, no people")
-NEGATIF = ("text, letters, watermark, logo, brand, people, face, hands, blurry, deformed, "
+NEGATIF = ("text, letters, words, caption, label, signature, copyright, watermark, logo, brand, badge, emblem, license plate, people, face, hands, blurry, deformed, "
            "low quality, cartoon, anime, oversaturated")
 SEED_BASE = 1000
 STEPS, CFG = 28, 7
@@ -93,3 +93,4 @@ if __name__ == "__main__":
         else:
             print(f"Plan {p['id']} : ABANDONNÉ (relance le script pour réessayer)")
     print("Terminé. Images dans", sortie)
+

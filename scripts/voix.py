@@ -1,4 +1,4 @@
-"""
+﻿"""
 Voix : storyboard.json -> audio\\plan_001.wav ... + audio.wav (complet) + timings.json + texte_sous_titres.txt
 
 Usage (PowerShell) :
@@ -39,7 +39,7 @@ def piper(texte, sortie):
     if not os.path.exists(modele):
         sys.exit(f"Voix introuvable : {modele}\nTélécharge-la : python -m piper.download_voices {VOIX} --data-dir {ROOT}\\voices")
     r = subprocess.run([sys.executable, "-m", "piper", "-m", modele, "-f", sortie],
-                       input=texte.encode("utf-8"), capture_output=True)
+                       input=texte.encode("utf-8"), capture_output=True, env={**os.environ, "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"})
     if r.returncode != 0 or not os.path.exists(sortie):
         raise RuntimeError(r.stderr.decode("utf-8", "replace")[-300:])
 
@@ -100,3 +100,6 @@ if __name__ == "__main__":
     open(os.path.join(dossier, "texte_sous_titres.txt"), "w", encoding="utf-8").write(texte_sub)
     total = duree(complet)
     print(f"Terminé : audio.wav = {int(total//60)} min {int(total%60)} s, {len(plans)} plans.")
+
+
+
