@@ -1,0 +1,21 @@
+{
+    "titles":  [
+                   "Pourquoi le poids change tout dans un virage",
+                   "Transfert de charge : ce que le poids fait à ta voiture en virage",
+                   "Sous-virage, survirage : le rôle du poids"
+               ],
+    "description":  "Le poids d\u0027une voiture affecte sa tenue de route en virage grâce au transfert de charge. Les forces horizontales modifient la répartition de la charge sur les pneus, influençant l\u0027adhérence et la stabilité. Un mauvais transfert peut entraîner un sous-virage ou un survirage.\n\nSources :\n- Transfert de charge (automobile) https://fr.wikipedia.org/wiki/Transfert_de_charge_(automobile)\n- Tenue de route https://fr.wikipedia.org/wiki/Tenue_de_route\n- Sous-virage https://fr.wikipedia.org/wiki/Sous-virage\n- Survirage https://fr.wikipedia.org/wiki/Survirage\n\nNarration et illustrations générées par IA ; les images ne sont pas des photographies d\u0027archives.",
+    "tags":  [
+                 "voiture",
+                 "comportement en virage",
+                 "adhérence",
+                 "transfert de charge",
+                 "poids",
+                 "tenue de route",
+                 "sécurité",
+                 "ingénierie automobile"
+             ],
+    "thumbnail_prompt":  "a heavy sedan taking a sharp corner on a mountain road, strong body roll, outer front tire compressed, dramatic low angle, golden hour light, one car centered, high contrast",
+    "thumbnail_text":  "POIDS EN VIRAGE",
+    "title":  "Pourquoi le poids change tout dans un virage"
+}
