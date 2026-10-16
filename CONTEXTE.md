@@ -55,3 +55,8 @@ systeme, plan, section, verification, storyboard, metadata, sujets, prononciatio
 
 ## Pour reprendre dans une nouvelle conversation
 Donne le lien du dépôt, la dernière sortie de terminal et dis à quelle étape tu en es.
+## OBJECTIF FINAL (ne pas s'en éloigner)
+Automatiser de A à Z : une idée en une phrase -> vidéo YouTube terminée (sources, script, storyboard, images, voix, sous-titres, montage, métadonnées, miniature), avec le minimum d'interventions manuelles, orchestrée par run_pipeline.py puis n8n. Toute proposition doit rapprocher de cet objectif ; pas de détour hors pipeline.
+
+## Mise à jour du contexte
+Après chaque changement : powershell -ExecutionPolicy Bypass -File .\maj.ps1 "message" (régénère PROJET_COMPLET.txt, non versionné, puis commit + push). Dans une nouvelle conversation : envoyer PROJET_COMPLET.txt + la dernière sortie de terminal.
